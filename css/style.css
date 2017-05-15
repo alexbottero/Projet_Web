@@ -1,0 +1,15 @@
+.connection{
+    height: 50px;
+    width: 200px;
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+}
+.connection>.btn{
+    height: 40px;
+    width: 100px;
+}
+.container{
+    background-color:#ffc400 ;
+    margin: 0px;
+}
