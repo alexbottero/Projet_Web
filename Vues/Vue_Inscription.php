@@ -4,49 +4,79 @@
 <div>
     <?php require("Vue_Menu.php"); ?>
 </div>
+
 <div class="row">
-<form class="col s12">
+<form class="col s12 ">
     <div class="row">
         <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name</label>
+            <input  id="Prenom" type="text" class="validate">
+            <label for="nom">Prenom</label>
         </div>
         <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label>
+            <input id="Nom" type="text" class="validate">
+            <label for="Nom">Nom</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-            <label for="disabled">Disabled</label>
+            <input  id="mail" type="text" class="validate">
+            <label for="disabled">Mail</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input id="password" type="password" class="validate">
-            <label for="password">Password</label>
+            <input id="Mot_de_passe" type="password" class="validate">
+            <label for="Mot_de_passe">Mot de passe</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="Conf_Mot_de_passe" type="password" class="validate">
+            <label for="Conf_Mot_de_passe">Confirmation mot de passe</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <select>
+                <option value="" disabled selected>Section</option>
+                <option value="IG">IG</option>
+                <option value="MEA">MEA</option>
+                <option value="GBA">GBA</option>
+            </select>
+        </div>
+        <div class="input-field col s6">
+            <select>
+                <option value="" disabled selected>Annee</option>
+                <option value="3 ieme">3 ieme</option>
+                <option value="4 ieme">4 ieme</option>
+                <option value="5 ieme">5 ieme</option>
+            </select>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
+            <input  id="mail_parrain" type="text" class="validate">
+            <label for="disabled">Mail Parrain</label>
         </div>
     </div>
     <div class="row">
-        <div class="col s12">
-            This is an inline input field:
-            <div class="input-field inline">
-                <input id="email" type="email" class="validate">
-                <label for="email" data-error="wrong" data-success="right">Email</label>
-            </div>
+        <div class="input-field col s12">
+            <input  id="phone" type="text" class="validate">
+            <label for="disabled">Telephone</label>
         </div>
     </div>
 </form>
 </div>
-
+<div class="Envoi">
+    <button class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
+        <i class="material-icons right">send</i>
+    </button>
+</div>
 <?php include ('Configs/Config_js.php'); ?>
 </body>
 </html>
+
+<script> $(document).ready(function() {
+$('select').material_select();
+});</script>
+
+<script> $('select').material_select('destroy');</script>
 

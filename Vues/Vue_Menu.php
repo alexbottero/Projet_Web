@@ -7,14 +7,12 @@
             <li><a href="sass.html">Covoiturage</a></li>
             <li><a href="badges.html">Appartement</a></li>
             <li><a href="collapsible.html">Troc</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
+            <li><a href="sass.html">Covoiturage</a></li>
+            <li><a href="badges.html">Appartement</a></li>
+            <li><a href="collapsible.html">Troc</a></li>
         </ul>
     </div>
 </nav>
-<script > $( document ).ready(function(){})</script>
+<script> $(document).ready(function(){})</script>
