@@ -1,16 +1,26 @@
-.connexion{
-    height: 50px;
-    width: 300px;
-    position: absolute;
-    right: 10px;
-    display:inline-block;
-    padding-left: 50px;
+.connexion {
+    margin-left: 30%;
+    margin-right: 30%;
 }
 .dernAnnonces{
     background-color:#ffc400 ;
-    margin-bottom:0;
+    height:400px;
+    width: 100%;
 }
 .Envoi{
     margin-left: 20%;
     margin-bottom: 2%;
+}
+h2{
+    margin: 0;
+    text-align: center;
+}
+#covoit{
+    display: none;
+}
+#appart{
+    display: none;
+}
+#troc{
+    display: none;
 }

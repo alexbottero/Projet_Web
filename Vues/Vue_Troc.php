@@ -1,7 +1,14 @@
+
+<head>
+    <?php include ('Configs/Config_css.php'); ?>
+</head>
 <?php
-/**
- * Created by PhpStorm.
- * User: alexandre
- * Date: 14/05/2017
- * Time: 16:42
- */
+$res= recupTroc(52);
+echo $res['photoTroc'];
+echo "alexandrebottero.com/".$res['photoTroc'];
+echo"<img src=\"alexandrebottero.com/".$res['photoTroc']."\"/>"
+?>
+
+<?php require("Vue_PiedDePage.php"); ?>
+<?php include ('Configs/Config_js.php'); ?>
+<script>

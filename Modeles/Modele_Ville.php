@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexandre
- * Date: 14/05/2017
- * Time: 16:28
- */
+    function recupVille(){
+        require_once('Modele_ConnexionBDD.php');
+        $connexion=connexionBD();
+        $req=$connexion->prepare('SELECT * FROM Ville');
+        $req->execute();
+        $data=$req->fetchAll();
+        return $data;
+    }
+?>
