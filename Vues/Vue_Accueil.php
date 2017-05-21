@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projet Web</title>
+    <title>P-Share</title>
     <?php include ('Configs/Config_css.php'); ?>
 
 
@@ -18,28 +18,78 @@
 </div>
 
 <div class="parallax-container">
-    <div class="parallax"><img src="Medias/covoit.jpg"></div>
+    <div class="parallax"><img src="Medias/comedie.jpg"></div>
 </div>
 <div class="dernAnnonces">
-<h2>Derniers covoiturages disponibles<h2>
 
-</div>
-<div class="parallax-container">
-    <div class="parallax"><img src="Medias/appartement.jpg"></div>
-</div>
-<div class="dernAnnonces">
-<h2> Derniers apparements libérés</h2>
-</div>
-<div class="parallax-container">
-    <div class="parallax"><img src="Medias/troc.jpg"></div>
-</div>
-<div class="dernAnnonces">
-    <h2>Derniers trocs disponibles </h2>
+    <?php
+    echo "<div class=\"row\">";
 
+    echo" <div class=\"col s6 m6\">
+          <div class=\"card\">
+            <div class=\"card-image\">
+              <img src=\"alexandrebottero.com/".$dernierTroc['photoTroc']."\"/>
+              <span class=\"card-title\">".$dernierTroc['titreAnnonce']."</span>
+            </div>
+            <div class=\"card-content\">
+              <p>".$dernierApp['messageAnnonce']."</p>
+            </div>
+            <div class=\"card-content indigo darken-4 white-text\">
+              <p>Adresse: ".$dernierTroc['numRecup']." ".$dernierTroc['rueRecup']." ".$dernierTroc['villeRecup'].".</p>
+              <p>prix: ".$dernierTroc['prixTroc'].".</p>
+            </div>";
+        if($val){
+            echo"<div class=\"card-action\">
+            <a class=\"waves-effect waves-light btn indigo darken-4\"><i class=\"material-icons left\">input</i>Demander</a>
+            </div>";}
+
+
+       echo " </div>
+                </div>";
+
+    echo "<div class=\"row\">";
+    echo" <div class=\"col s6 m6\">
+          <div class=\"card\">
+            <div class=\"card-image\">
+              <img src=\"alexandrebottero.com/".$dernierApp['photoAppartement']."\"/>
+              <span class=\"card-title\">".$dernierApp['titreAnnonce']." libre le ".$dernierApp['dateCessionAppartement']."</span>
+            </div>
+            <div class=\"card-content\">
+              <p>".$dernierApp['messageAnnonce']."</p>
+            </div>
+            <div class=\"card-content indigo darken-4 white-text\">
+              <p>Adresse: ".$dernierApp['numAppartement']." ".$dernierApp['rueAppartement']." ".$dernierApp['villeAppartement'].".</p>
+              <p>Loyer: ".$dernierApp['loyer']." Surface appartement: ".$dernierApp['surfaceAppartement']." nombre de piece: ".$dernierApp['nbPiece'].".</p>
+            </div>";
+            if($val){
+                echo"<div class=\"card-action\">
+                <a class=\"waves-effect waves-light btn indigo darken-4\"><i class=\"material-icons left\">input</i>Demander</a>
+            </div>";}
+
+          echo"</div>
+        </div>
+        </div>";
+
+    echo " <div class=\"col s12 m6\">
+          <div class=\"card  \">
+            <div class=\"card-content black-text\">
+              <span class=\"card-title\">".$dernierCov['titreAnnonce']." le : ".$dernierCov['dateCovoiturage']."</span>
+              <p>".$dernierCov['messageAnnonce']."</p>
+              <p>Prix:".$dernierCov['PrixTrajet']." nombre de place : ".$dernierCov['nbPlaceDispo']." bagage: ".$dernierCov['bagageCovoiturage']."</p>
+            </div>
+            <div class=\"card-content indigo darken-4 white-text\">
+            <p>Depart: Rue ".$dernierCov['rueDep']." ".$dernierCov['villeDep']." Arrivée: ".$dernierCov['villeArrive']."</p>
+            </div>";
+                if($val){
+                     echo"<div class=\"card-action\">
+                     <a class=\"waves-effect waves-light btn indigo darken-4\"><i class=\"material-icons left\">input</i>Demander</a>
+                </div>";}
+
+    echo "</div>
+        </div>";
+    ?>
 </div>
-<div>
-    <?php require("Vue_PiedDePage.php"); ?>
-</div>
+
 <?php include ('Configs/Config_js.php'); ?>
 </body>
 </html>

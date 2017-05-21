@@ -16,22 +16,33 @@ VALUES(:prix,:num,:photo,:rue,:ville,:id)'
     $req->execute();
 }
 
-function recupTroc($idAnnonce){
+function allTroc(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Troc Where idAnnonce=:idAnnonce');
-    $req->bindParam(':idAnnonce',$idAnnonce);
+    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce)');
     $req->execute();
-    $data=$req->fetch();
+    $data=$req->fetchAll();
     return $data;
+}
 
-}
-function dernierCovoit(){
+function dernierTroc(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Troc WHERE idTroc=MAX(idTroc)');
+    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce WHERE idTroc=(SELECT MAX(idTroc) FROM Troc)');
     $req->execute();
     $data=$req->fetch();
     return $data;
 }
+
+function rechercheTroc($prixMax,$ville){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Troc NATURAL JOIN Annonce
+    WHERE prixTroc<:prixMax AND LOWER (villeRecup)=LOWER (:ville)');
+    $req->bindParam(':prixMax', $prixMax);
+    $req->bindParam(':ville',$ville);
+    $req->execute();
+    $data=$req->fetchAll();
+    return $data;}
+
 ?>

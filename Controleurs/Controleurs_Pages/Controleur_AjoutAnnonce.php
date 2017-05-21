@@ -93,6 +93,9 @@
             echo "Ajout troc invalide";
         }
     }
+    else{
+        echo "Choisis le type";
+    }
 
 ?>
 

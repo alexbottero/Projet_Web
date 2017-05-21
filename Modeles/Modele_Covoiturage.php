@@ -19,9 +19,32 @@ VALUES(:prix,:date,:nbPlace,:bag,:rueDep,:villeDep,:villeArrive,:idAnnonce)');
 function dernierCovoit(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Covoiturage WHERE idCovoiturage=MAX(idCovoiturage)');
+    $req = $connexion->prepare('SELECT * FROM Covoiturage NATURAL JOIN Annonce WHERE idCovoiturage=(SELECT MAX(idCovoiturage) FROM Covoiturage)');
     $req->execute();
     $data=$req->fetch();
+    return $data;
+}
+
+function allCovoit(){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Covoiturage NATURAL JOIN Annonce');
+    $req->execute();
+    $data=$req->fetchAll();
+    return $data;
+}
+
+function rechercheCov($prixMax,$dep,$arriv,$date){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Covoiturage NATURAL JOIN Annonce
+    WHERE prixTrajet<:prixMax AND LOWER (villeDep)=LOWER (:dep) AND LOWER (villeArrive)=LOWER (:arriv) AND dateCovoiturage=:date');
+    $req->bindParam(':prixMax', $prixMax);
+    $req->bindParam(':dep',$dep);
+    $req->bindParam(':arriv',$arriv);
+    $req->bindParam(':date',$date);
+    $req->execute();
+    $data=$req->fetchAll();
     return $data;
 }
 ?>

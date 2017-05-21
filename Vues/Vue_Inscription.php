@@ -1,5 +1,12 @@
+<!doctype html>
+<html lang="fr">
 <head>
-<?php include ('Configs/Config_css.php'); ?>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>P-Share</title>
+    <?php include ('Configs/Config_css.php'); ?>
 </head>
 <body>
 <div>
@@ -69,11 +76,10 @@
     </div>
     </form>
     <div class="Envoi">
-        <button class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
+        <button class="btn waves-effect waves-light indigo darken-4" type="submit" name="action">S'inscrire
             <i class="material-icons right">send</i>
         </button>
     </div>
-</div>
 <?php include ('Configs/Config_js.php'); ?>
 </body>
 </html>
