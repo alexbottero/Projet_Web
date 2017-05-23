@@ -28,7 +28,7 @@ function dernierCovoit(){
 function allCovoit(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM  Covoiturage NATURAL JOIN Annonce');
+    $req = $connexion->prepare('SELECT * FROM  Covoiturage NATURAL JOIN Annonce ORDER BY dateAjoutAnnonce DESC ');
     $req->execute();
     $data=$req->fetchAll();
     return $data;

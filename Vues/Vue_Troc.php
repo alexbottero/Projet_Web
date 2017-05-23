@@ -1,5 +1,3 @@
-
-<<!doctype html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -12,8 +10,39 @@
 
 </head>
 <body>
+<?php require("Vue_Menu.php"); ?>
 
-</body>
+<div class="all">
+    <?php
+    foreach ($Trocs as $Troc){
+
+        echo" <div class=\"col s6 m6 divAn\">
+          <div class=\"card\">
+            <div class=\"card-image\">
+              <img src=\"alexandrebottero.com/".$Troc['photoTroc']."\"/>
+              <span class=\"card-title\">".$Troc['titreAnnonce']."</span>
+            </div>
+            <div class=\"card-content\">
+              <p>".$Troc['messageAnnonce']."</p>
+            </div>
+            <div class=\"card-content indigo darken-4 white-text\">
+              <p>Adresse: ".$Troc['numRecup']." ".$Troc['rueRecup']." ".$Troc['villeRecup'].".</p>
+              <p>prix: ".$Troc['prixTroc'].".</p>
+            </div>";
+        if($val){
+            echo"<div class=\"card-action\">
+            <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$Troc['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
+            </div>";}
+
+
+        echo " </div>
+                </div>";
+
+
+
+    }
+    ?>
+</div>
 <div>
     <?php require("Vue_PiedDePage.php"); ?>
 </div>

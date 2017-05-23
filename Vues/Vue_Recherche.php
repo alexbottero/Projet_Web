@@ -7,7 +7,7 @@
 </div>
 
 <h2> Recherche</h2>
-<form method="post" action="/Controleurs/Controleurs_Pages/Controleur_Recherche.php ">
+<form method="post" action="resultat.php ">
 <div class="row">
     <div class="input-field col s12" >
         <select name="TypeAnnonce" id="TypeAnnonce">

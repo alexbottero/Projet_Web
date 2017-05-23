@@ -19,7 +19,7 @@ VALUES(:prix,:num,:photo,:rue,:ville,:id)'
 function allTroc(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce)');
+    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce ORDER BY dateAjoutAnnonce');
     $req->execute();
     $data=$req->fetchAll();
     return $data;

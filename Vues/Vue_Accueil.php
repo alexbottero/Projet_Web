@@ -32,7 +32,7 @@
               <span class=\"card-title\">".$dernierTroc['titreAnnonce']."</span>
             </div>
             <div class=\"card-content\">
-              <p>".$dernierApp['messageAnnonce']."</p>
+              <p>".$dernierTroc['messageAnnonce']."</p>
             </div>
             <div class=\"card-content indigo darken-4 white-text\">
               <p>Adresse: ".$dernierTroc['numRecup']." ".$dernierTroc['rueRecup']." ".$dernierTroc['villeRecup'].".</p>
@@ -40,7 +40,7 @@
             </div>";
         if($val){
             echo"<div class=\"card-action\">
-            <a class=\"waves-effect waves-light btn indigo darken-4\"><i class=\"material-icons left\">input</i>Demander</a>
+            <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$dernierTroc['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
             </div>";}
 
 
@@ -63,7 +63,7 @@
             </div>";
             if($val){
                 echo"<div class=\"card-action\">
-                <a class=\"waves-effect waves-light btn indigo darken-4\"><i class=\"material-icons left\">input</i>Demander</a>
+                <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$dernierApp['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
             </div>";}
 
           echo"</div>
@@ -82,7 +82,7 @@
             </div>";
                 if($val){
                      echo"<div class=\"card-action\">
-                     <a class=\"waves-effect waves-light btn indigo darken-4\"><i class=\"material-icons left\">input</i>Demander</a>
+                     <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$dernierCov['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
                 </div>";}
 
     echo "</div>

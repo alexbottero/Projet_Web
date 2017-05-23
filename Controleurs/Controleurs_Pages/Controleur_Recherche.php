@@ -1,43 +1,51 @@
 <?php
     $typeAnnonce=$_POST['TypeAnnonce'];
-
     $prixMax=$_POST['PrixMax'];
+
     $depart=$_POST['villeDepart'];
+
     $arrive=$_POST['villeArrive'];
+
     $dateCovoit=$_POST['dateCovoit'];
 
     $villeAppart=$_POST['villeAppart'];
-    $loyer=$_POST['Loyer'];
-    $pieceMin=$_POST['nbPiece'];
+
+    $loyer=$_POST['LoyerMax'];
+
+    $pieceMin=$_POST['NbPiece'];
+
+
     $surface=$_POST['Surface'];
+
 
     $villeTroc=$_POST['villeRecup'];
     $prixMaxTroc=$_POST['PrixTroc'];
 
-    if($type=="Covoit"){
+    $resultats = null;
+
+    if($typeAnnonce=="Covoit"){
         if(!empty($prixMax) && !empty($depart) && !empty($arrive) && !empty($dateCovoit)){
-            $rech=rechercheCov($prixMax,$depart,$arrive,$dateCovoit);
-            header("Location:../../resultat.php");
+            $dateTemp=date_create($dateCovoit);
+            $dateCovoit = date_format($dateTemp,'Y-m-d');
+            $resultats=rechercheCov($prixMax,$depart,$arrive,$dateCovoit);
         }
         else{
-            echo "manques info";
+            echo "manques info 2";
         }
 
     }
-    elseif($type=="Appartement"){
+    elseif($typeAnnonce=="Appartement"){
         if(!empty($villeAppart) && !empty($loyer) && !empty($pieceMin) && !empty($surface)){
-            $rech=rechercheCov($villeAppart,$pieceMin,$surface,$loyer);
-            header("Location:../../resultat.php");
+            $resultats=rechercheApp($villeAppart,$pieceMin,$surface,$loyer);
         }
         else{
-            echo "manques info";
+            echo "manques info3";
         }
 
     }
-    elseif($type=="Troc"){
+    elseif($typeAnnonce=="Troc"){
         if(!empty($villeTroc) && !empty($prixMaxTroc) ){
-            $rech=rechercheTroc($prixMaxTroc,$villeTroc);
-            header("Location:../../resultat.php");
+            $resultats=rechercheTroc($prixMaxTroc,$villeTroc);
 
         }
         else{

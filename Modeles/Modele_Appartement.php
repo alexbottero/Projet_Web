@@ -28,7 +28,7 @@ function dernierAppart(){
 function allAppart(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Appartement NATURAL JOIN Annonce)');
+    $req = $connexion->prepare('SELECT * FROM Appartement NATURAL JOIN Annonce ORDER BY dateAjoutAnnonce DESC ');
     $req->execute();
     $data=$req->fetchAll();
     return $data;
@@ -37,7 +37,7 @@ function rechercheApp($ville,$nbPiece,$surf,$loyer){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
     $req = $connexion->prepare('SELECT * FROM  Appartement NATURAL JOIN Annonce
-    WHERE loyer<:loyer AND lower(villeAppartement)=lower(:ville) AND nbPiece>=:nbPiece AND surfaceApparement>=:surf');
+    WHERE loyer<:loyer AND lower(villeAppartement)=lower(:ville) AND nbPiece>=:nbPiece AND surfaceAppartement>=:surf');
     $req->bindParam(':loyer', $loyer);
     $req->bindParam(':ville',$ville);
     $req->bindParam(':nbPiece',$nbPiece);
