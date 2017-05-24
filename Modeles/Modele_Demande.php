@@ -14,14 +14,35 @@ VALUES(:mess,:prix,:date,:email,:statut,:annonce)'
     $req->bindParam(':annonce', $annonce);
     $req->execute();
 }
-function modifStatutDemande($nouveauStatut,$IdAnnonce)
+function modifStatutDemande($nouveauStatut,$IdDemande)
 {
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('UPDATE Demande SET idStatutDemande=:nouveauStatut WHERE idAnnonce=:idAnnonce');
+    $req = $connexion->prepare('UPDATE Demande SET idStatutDemande=:nouveauStatut WHERE idDemande=:idDemande');
     $req->bindParam(':nouveauStatut',$nouveauStatut);
-    $req->bindParam(':idAnnonce',$IdAnnonce);
+    $req->bindParam(':idDemande',$IdDemande);
     $req->execute();
+}
+function demandesFaites($mail){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Demande NATURAL JOIN User INNER JOIN Annonce ON Demande.idAnnonce=Annonce.idAnnonce  WHERE User.email=:mail');
+    $req->bindParam(':mail', $mail);
+    $req->execute();
+
+    $data=$req->fetchAll();
+    return $data;
+}
+
+function demandesRecues($mail){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Demande NATURAL JOIN User INNER JOIN Annonce ON Demande.idAnnonce=Annonce.idAnnonce  WHERE Annonce.email=:mail');
+    $req->bindParam(':mail', $mail);
+    $req->execute();
+
+    $data=$req->fetchAll();
+    return $data;
 }
 
 ?>

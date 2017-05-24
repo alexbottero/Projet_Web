@@ -1,5 +1,5 @@
 <?php
 require('Configs/Config_pages.php');
-$Apparts=allAppart();
+$Apparts=allAppartValide();
 
 require('Vues/Vue_Appartement.php');?>

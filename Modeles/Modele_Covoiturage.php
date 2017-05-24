@@ -33,6 +33,25 @@ function allCovoit(){
     $data=$req->fetchAll();
     return $data;
 }
+function allCovoitValide(){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Covoiturage NATURAL JOIN Annonce WHERE idStatutAnnonce=2 ORDER BY dateAjoutAnnonce DESC ');
+    $req->execute();
+    $data=$req->fetchAll();
+    return $data;
+}
+
+function mesCovoits($mail){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Covoiturage NATURAL JOIN Annonce WHERE email=:mail');
+    $req->bindParam(':mail', $mail);
+    $req->execute();
+
+    $data=$req->fetchAll();
+    return $data;
+}
 
 function rechercheCov($prixMax,$dep,$arriv,$date){
     require_once("Modele_ConnexionBDD.php");

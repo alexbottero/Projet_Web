@@ -16,10 +16,30 @@ VALUES(:prix,:num,:photo,:rue,:ville,:id)'
     $req->execute();
 }
 
+function mesTrocs($mail){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM  Troc NATURAL JOIN Annonce WHERE email=:mail');
+    $req->bindParam(':mail', $mail);
+    $req->execute();
+
+    $data=$req->fetchAll();
+    return $data;
+}
+
+
 function allTroc(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
     $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce ORDER BY dateAjoutAnnonce');
+    $req->execute();
+    $data=$req->fetchAll();
+    return $data;
+}
+function allTrocValide(){
+    require_once("Modele_ConnexionBDD.php");
+    $connexion = connexionBD();
+    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce WHERE idStatutAnnonce=2 ORDER BY dateAjoutAnnonce');
     $req->execute();
     $data=$req->fetchAll();
     return $data;

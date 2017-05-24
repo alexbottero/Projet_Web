@@ -1,4 +1,4 @@
 <?php
 require('Configs/Config_pages.php');
-$Covoits=allCovoit();
+$Covoits=allCovoitValide();
 require('Vues/Vue_Covoiturage.php');?>

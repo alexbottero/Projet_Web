@@ -1,4 +1,4 @@
 <?php
 require('Configs/Config_pages.php');
-$Trocs=allTroc();
+$Trocs=allTrocValide();
 require('Vues/Vue_Troc.php');?>

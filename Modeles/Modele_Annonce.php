@@ -23,4 +23,14 @@
         $data=$req->fetch();
         return $data;
     }
+
+    function modifStatutAnnonce($id,$statut){
+        require_once("Modele_ConnexionBDD.php");
+        $connexion=connexionBD();
+        $req=$connexion->prepare('UPDATE Annonce SET idStatutAnnonce=:statut WHERE idAnnonce=:id'
+        );
+        $req->bindParam(':id',$id);
+        $req->bindParam(':statut',$statut);
+        $req->execute();
+    }
 ?>
