@@ -23,7 +23,7 @@
             $nCodeCookie=substr(str_shuffle("0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVB"),0,30);
             setcookie("cookie_Connexion",$nCodeCookie,time()+(10000),"/",'' );
             updateCookie($user['email'],$nCodeCookie);
-            header("Location: ../../index.php");
+            header("Location:/index");
         }
         else{
             $err="Mot de passe erroné";

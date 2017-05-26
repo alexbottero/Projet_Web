@@ -14,6 +14,7 @@ if( !empty($mess)){
     $dateTemp=date_create($date);
     $date = date_format($dateTemp,'Y-m-d H:i:s');
     ajoutDemande($mess,$prix,$date,$user['email'],'1',$id);
+    Header('Location:/index');
 
 }
 else{

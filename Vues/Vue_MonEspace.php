@@ -131,7 +131,7 @@
               <p>".$demande['messageDemande']."</p>
             </div>
             <div class=\"card-content indigo darken-4 white-text\">
-            <p>Statut: ".$demande['prixDemande']."</p>
+            <p>Statut: ".$demande['libelleStatutDemande']."</p>
             </div>";
             echo"<div class=\"card-action\">
                      <a class=\"btn-floating btn-large waves-effect waves-light darken-4\" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idDemande=".$demande['idDemande']."&value=2'><i class=\"material-icons\" >thumb_up</i></a>
@@ -168,9 +168,6 @@
             <div class=\"card-content indigo darken-4 white-text\">
             <p>Statut: ".$demande['libelleStatutDemande']."</p>
             </div>";
-            echo"<div class=\"card-action\">
-                    <a class=\"waves-effect waves-light btn\"href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idDemande=".$demande['idDemande']."&value=3'>retirer annonce</a>
-                </div>";
         echo "</div>
                     </div>";
         if( $compteur==3){
@@ -207,8 +204,8 @@
             <p>Depart: Rue ".$covoit['rueDep']." ".$covoit['villeDep']." Arrivée: ".$covoit['villeArrive']."</p>
             </div>";
             echo"<div class=\"card-action\">
-                       <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=2'><i class=\"material-icons\">thumb-up</i></a>
-                     <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=3'><i class=\"material-icons\">thum-down</i></a>
+                       <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=2'><i class=\"material-icons\">thumb_up</i></a>
+                     <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=3'><i class=\"material-icons\">thumb_down</i></a>
                 </div>";
             echo "</div>
                     </div>";
@@ -245,8 +242,8 @@
             </div>";
 
             echo"<div class=\"card-action\">
-                 <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$App['idAnnonce']."&value=2'><i class=\"material-icons\">thump-up</i></a>
-                     <a class=\"btn-floating btn-large  \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$App['idAnnonce']."&value=3'><i class=\"material-icons\">thump-down</i></a>
+                 <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$App['idAnnonce']."&value=2'><i class=\"material-icons\">thumb_up</i></a>
+                     <a class=\"btn-floating btn-large  \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$App['idAnnonce']."&value=3'><i class=\"material-icons\">thumb_down</i></a>
             </div>";
 
             echo"</div>
@@ -288,8 +285,8 @@
               <p>prix: ".$Troc['prixTroc'].".</p>
             </div>";
             echo"<div class=\"card-action\">
-             <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$Troc['idAnnonce']."&value=2'><i class=\"material-icons\">thump-up</i></a>
-                     <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$Troc['idAnnonce']."&value=3'><i class=\"material-icons\">thump-down</i></a>
+             <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$Troc['idAnnonce']."&value=2'><i class=\"material-icons\">thumb_up</i></a>
+                     <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$Troc['idAnnonce']."&value=3'><i class=\"material-icons\">thumb_down</i></a>
             </div>";
 
 
@@ -309,9 +306,6 @@
 
     }
     ?>
-<div>
-    <?php require("Vue_PiedDePage.php"); ?>
-</div>
 <?php include ('Configs/Config_js.php'); ?>
 </body>
 </html>

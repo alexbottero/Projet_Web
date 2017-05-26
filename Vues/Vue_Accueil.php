@@ -7,7 +7,7 @@
 </div>
 
 <div class="parallax-container">
-    <div class="parallax"><img src="Medias/comedie.jpg"></div>
+    <div class="parallax"><img src="/Medias/bg.jpg"></div>
 </div>
 <div class="dernAnnonces">
 
@@ -17,7 +17,7 @@
     echo" <div class=\"col s6 m6\">
           <div class=\"card\">
             <div class=\"card-image\">
-              <img src=\"alexandrebottero.com/".$dernierTroc['photoTroc']."\"/>
+              <img src=\"alexandrebottero.com/".$dernierTroc['photoTroc']."\" height='300px'/>
               <span class=\"card-title\">".$dernierTroc['titreAnnonce']."</span>
             </div>
             <div class=\"card-content\">
@@ -40,7 +40,7 @@
     echo" <div class=\"col s6 m6\">
           <div class=\"card\">
             <div class=\"card-image\">
-              <img src=\"alexandrebottero.com/".$dernierApp['photoAppartement']."\"/>
+              <img src=\"alexandrebottero.com/".$dernierApp['photoAppartement']."\"height='300px'/>
               <span class=\"card-title\">".$dernierApp['titreAnnonce']." libre le ".$dernierApp['dateCessionAppartement']."</span>
             </div>
             <div class=\"card-content\">

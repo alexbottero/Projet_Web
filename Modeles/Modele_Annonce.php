@@ -1,4 +1,5 @@
 <?php
+// ajoute une annonce
     function ajoutAnnonce($message,$titre,$date,$statut,$user){
         require_once("Modele_ConnexionBDD.php");
         $connexion=connexionBD();
@@ -13,6 +14,7 @@
         $data=$connexion->lastInsertId();
         return $data;
     }
+    //recupere une annonce a partir de son id
     function recupAnnonce($id){
         require_once("Modele_ConnexionBDD.php");
         $connexion=connexionBD();
@@ -23,7 +25,7 @@
         $data=$req->fetch();
         return $data;
     }
-
+    // modifie le statut de l'annonce passe en parametre par la valeur passer en parametre
     function modifStatutAnnonce($id,$statut){
         require_once("Modele_ConnexionBDD.php");
         $connexion=connexionBD();
@@ -33,7 +35,7 @@
         $req->bindParam(':statut',$statut);
         $req->execute();
     }
-
+// supprimer les annonces invalide (et par consequent les demandes /covoit ou appart ou troc  grace a propiriete on casade dans la bd)
     function supAnnonceInvalide(){
         require_once("Modele_ConnexionBDD.php");
         $connexion=connexionBD();

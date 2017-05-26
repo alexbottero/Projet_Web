@@ -21,6 +21,7 @@ RewriteRule "^connexion/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
 RewriteRule "^inscription/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
 RewriteRule "^ajoutAnnonce/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
 RewriteRule "^demande/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
+RewriteRule "^recherche/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
 
 
 

@@ -35,5 +35,6 @@
     }
     else{
         ajoutUser($mail,$nom,$prenon,$section,sha1(sha1($mdp)),$seed,$annee,1,$mailParrain,$tel);
+        header('Location:/connexion');
     }
 ?>

@@ -30,6 +30,7 @@ if($type=="Covoit")
                     </div>";
     }
     }
+    else{echo "<h2> Aucune annonce ne correspond</h2>";}
 }
 elseif($type=="Appartement"){
 if(!empty($resultats)) {
@@ -57,6 +58,7 @@ if(!empty($resultats)) {
         </div>";
     }
 }
+    else{echo "<h2> Aucune annonce ne correspond</h2>";}
 }
 elseif($type=="Troc") {
     if (!empty($resultats)) {
@@ -86,12 +88,13 @@ elseif($type=="Troc") {
 
         }
     }
+    else {
+        echo "<h2> Aucune annonce ne correspond</h2>";
+    }
 }
 ?>
 </div>
-<div>
-    <?php require("Vue_PiedDePage.php"); ?>
-</div>
+
 <?php include ('Configs/Config_js.php'); ?>
 </body>
 </html>

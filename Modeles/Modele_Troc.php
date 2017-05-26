@@ -31,7 +31,7 @@ function mesTrocs($mail){
 function allTroc(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce WHERE idStatutAnnonce=1 ORDER BY dateAjoutAnnonce');
+    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce WHERE idStatutAnnonce=1 ORDER BY dateAjoutAnnonce ');
     $req->execute();
     $data=$req->fetchAll();
     return $data;
@@ -39,7 +39,7 @@ function allTroc(){
 function allTrocValide(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce WHERE idStatutAnnonce=2 ORDER BY dateAjoutAnnonce');
+    $req = $connexion->prepare('SELECT * FROM Troc NATURAL JOIN Annonce WHERE idStatutAnnonce=2 ORDER BY dateAjoutAnnonce DESC ');
     $req->execute();
     $data=$req->fetchAll();
     return $data;

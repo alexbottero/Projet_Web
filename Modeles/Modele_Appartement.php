@@ -17,6 +17,7 @@ VALUES(:dateCess,:rue,:nbPiece,:surf,:photo,:loyer,:num,:ville,:idAnnonce)'
     $req->bindParam(':idAnnonce',$idAnnonce);
     $req->execute();
 }
+// retourne le dernier appart valide
 function dernierAppart(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
@@ -25,6 +26,7 @@ function dernierAppart(){
     $data=$req->fetch();
     return $data;
 }
+//retourne tout les appartements a valider
 function allAppart(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
@@ -33,6 +35,7 @@ function allAppart(){
     $data=$req->fetchAll();
     return $data;
 }
+// retourne tout les appart valide
 function allAppartValide(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
@@ -41,6 +44,7 @@ function allAppartValide(){
     $data=$req->fetchAll();
     return $data;
 }
+// retourne les annonces d'appartement correspondant au mail
 function mesApparts($mail){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
@@ -51,6 +55,7 @@ function mesApparts($mail){
     $data=$req->fetchAll();
     return $data;
 }
+// retourne les appartements correspondant a la recherche
 function rechercheApp($ville,$nbPiece,$surf,$loyer){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();

@@ -31,7 +31,7 @@
         }
         else{
             $err="Certains champs de recherche sont vides";
-            Header('Location:/erreur.php?messErreur='.$err);
+            Header('Location:/recherche/erreur/'.$err);
         }
 
     }
@@ -41,7 +41,7 @@
         }
         else{
             $err="Certains champs de recherche sont vides";
-            Header('Location:/erreur.php?messErreur='.$err);
+            Header('Location:/recherche/erreur/'.$err);
         }
 
     }
@@ -52,13 +52,13 @@
         }
         else{
             $err="Certains champs de recherche sont vides";
-            Header('Location:/erreur.php?messErreur='.$err);
+            Header('Location:/recherche/erreur/'.$err);
         }
 
     }
     else{
         $err="Certains champs de recherche sont vides";
-        Header('Location:/erreur.php?messErreur='.$err);
+        Header('Location:/recherche/erreur/'.$err);
     }
 
 ?>

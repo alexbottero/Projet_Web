@@ -37,7 +37,7 @@ function demandesFaites($mail){
 function demandesRecues($mail){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM  Demande NATURAL JOIN User NATURAL JOIN StatutDemande INNER JOIN Annonce ON Demande.idAnnonce=Annonce.idAnnonce  WHERE Annonce.email=:mail');
+    $req = $connexion->prepare('SELECT * FROM  Demande NATURAL JOIN User NATURAL JOIN StatutDemande INNER JOIN Annonce ON Demande.idAnnonce=Annonce.idAnnonce  WHERE Annonce.email=:mail AND idStatutDemande=1');
     $req->bindParam(':mail', $mail);
     $req->execute();
 

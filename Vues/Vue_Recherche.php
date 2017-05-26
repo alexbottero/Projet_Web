@@ -1,4 +1,4 @@
-<<?php require("Vue_Entete.php"); ?>
+<?php require("Vue_Entete.php"); ?>
 <body>
 <div>
     <?php require("Vue_Menu.php"); ?>
