@@ -1,7 +1,5 @@
-
-<head>
-    <?php include ('Configs/Config_css.php'); ?>
-</head>
+<?php require("Vue_Entete.php"); ?>
+<body>
 <form method="post" action="/Controleurs/Controleurs_Pages/Controleur_Demande.php<?php echo"?IdAnnonce=".$_GET['idAnnonce'];?>" >
     <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
     <div>
@@ -35,3 +33,5 @@
 </form>
 
 <?php include ('Configs/Config_js.php'); ?>
+</body>
+</html>

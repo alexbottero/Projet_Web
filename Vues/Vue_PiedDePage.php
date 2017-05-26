@@ -2,7 +2,7 @@
     <div class="container ">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">P-Share</h5>
+                <h5 class="white-text">Poly-Partage</h5>
                 <p class="grey-text text-lighten-4">Site d'entraide pour les étudiants de polytech Montpellier </p>
             </div>
 

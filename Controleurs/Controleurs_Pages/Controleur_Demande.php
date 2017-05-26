@@ -9,7 +9,7 @@ $prix=$_POST['prixProp'];
 $date =date("Y-m-d H:i:s");
 $cookie=$_COOKIE["cookie_Connexion"];
 $user=existCookie($cookie);
-
+$err="";
 if( !empty($mess)){
     $dateTemp=date_create($date);
     $date = date_format($dateTemp,'Y-m-d H:i:s');
@@ -17,6 +17,7 @@ if( !empty($mess)){
 
 }
 else{
-    echo "demande invalide";
+    $err="Demande invalide";
+    Header('Location:/demande/erreur/'.$err);
 }
 ?>

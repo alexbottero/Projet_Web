@@ -1,13 +1,11 @@
-<head>
-    <?php include ('Configs/Config_css.php'); ?>
-</head>
+<<?php require("Vue_Entete.php"); ?>
 <body>
 <div>
     <?php require("Vue_Menu.php"); ?>
 </div>
 
 <h2> Recherche</h2>
-<form method="post" action="resultat.php ">
+<form method="post" action="resultat ">
 <div class="row">
     <div class="input-field col s12" >
         <select name="TypeAnnonce" id="TypeAnnonce">
@@ -88,7 +86,7 @@
         </div>
     </div>
     <div class="Envoi">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Rechercher
+        <button class="btn waves-effect waves-light darken-4 white-text" type="submit" name="action">Rechercher
             <i class="material-icons right">send</i>
         </button>
     </div>
@@ -130,3 +128,4 @@
         });
     </script>
 </body>
+</html>

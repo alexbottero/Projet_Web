@@ -1,2 +1,28 @@
 DirectoryIndex index.php
 
+Options +FollowSymlinks
+Options -MultiViews
+RewriteEngine on
+
+RewriteRule ^inscription$ /inscription.php [L]
+RewriteRule ^index$  /index.php [L]
+RewriteRule ^covoiturages$  /covoiturage.php [L]
+RewriteRule ^appartements$  /appartement.php [L]
+RewriteRule ^trocs$  /troc.php [L]
+RewriteRule ^connexion$  /connexion.php [L]
+RewriteRule ^ajoutAnnonce$  /ajoutAnnonce.php [L]
+RewriteRule ^recherche$  /recherche.php [L]
+RewriteRule ^resultat$  /resultat.php [L]
+RewriteRule ^monEspace$  /monEspace.php [L]
+RewriteRule ^deconnexion$  /deconnexion.php [L]
+
+RewriteRule "^demande/annonce/(.*)$" "/demande.php?idAnnonce=$1"[L]
+RewriteRule "^connexion/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
+RewriteRule "^inscription/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
+RewriteRule "^ajoutAnnonce/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
+RewriteRule "^demande/erreur/(.*)$" "/erreur.php?messErreur=$1"[L]
+
+
+
+
+

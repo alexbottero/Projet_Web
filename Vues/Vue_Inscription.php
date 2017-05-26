@@ -1,19 +1,10 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>P-Share</title>
-    <?php include ('Configs/Config_css.php'); ?>
-</head>
+<?php require("Vue_Entete.php"); ?>
 <body>
 <div>
     <?php require("Vue_Menu.php"); ?>
 </div>
 
-<form method="post" action="/Controleurs/Controleurs_Pages/Controleur_Inscription.php">
+<form method="post"  action="/Controleurs/Controleurs_Pages/Controleur_Inscription.php">
 <div class="formInscription">
     <h2> Inscription </h2>
     <div class="row">
@@ -89,4 +80,3 @@ $('select').material_select();
 });</script>
 
 <script> $('select').material_select('destroy');</script>
-

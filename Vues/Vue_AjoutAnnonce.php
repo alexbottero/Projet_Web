@@ -1,9 +1,8 @@
 
 
-<head>
-    <?php include ('Configs/Config_css.php'); ?>
-</head>
-    <form method="post" action="/Controleurs/Controleurs_Pages/Controleur_AjoutAnnonce.php " enctype="multipart/form-data">
+<?php require("Vue_Entete.php"); ?>
+<body>
+    <form method="post" action="/Controleurs/Controleurs_Pages/Controleur_AjoutAnnonce.php "  OnSubmit="return verif()" enctype="multipart/form-data">
     <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
 <div>
 <?php require('Vue_Menu.php');?>
@@ -171,7 +170,7 @@
 
 <div class="Envoi">
     <button class="btn waves-effect waves-light" type="submit" name="action">Ajouter
-        <i class="material-icons right">send</i>
+        <i class="material-icons right darken-4 white-text">send</i>
     </button>
 </div>
 </form>
@@ -214,6 +213,6 @@
     });
 </script>
 </body>
-
+</html>
 
 

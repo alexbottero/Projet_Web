@@ -2,14 +2,19 @@
     require("../../Modeles/Modele_User.php");
     $mail=$_POST['mail'];
     $mdp=$_POST['mdp'];
+    $err="";
     if(empty($mail)||empty($mdp)){
-        echo "rentre";
+        $err="Champs vides";
+        Header('Location:/connexion/erreur/'.$err);
     }
     elseif(!(filter_var($mail,FILTER_VALIDATE_EMAIL))){
-        echo "t'es con ton mail pas valide";
+        $err="Email invalide";
+        Header('Location:/connexion/erreur/'.$err);
+
     }
     elseif(empty(existUser($mail))){
-        echo "t'existe pas connard";
+        $err="Compte inexistant";
+        Header('Location:/connexion/erreur/'.$err);
     }
     else{
         $mdp=sha1(sha1($mdp));
@@ -21,7 +26,8 @@
             header("Location: ../../index.php");
         }
         else{
-            echo "mauvais mot de passe ta race ";
+            $err="Mot de passe erroné";
+            Header('Location:/connexion/erreur/'.$err);
         }
     }
 ?>

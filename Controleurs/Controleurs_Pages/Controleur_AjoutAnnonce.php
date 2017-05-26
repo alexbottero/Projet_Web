@@ -37,7 +37,7 @@
     $extensionTroc=strtolower(substr(strrchr($_FILES['FileTroc']['name'],'.'),1));
 
     $extensionsPossible= array('jpg','jpeg','gif','png');
-
+    $err="";
     if($type=="Covoit"){
 
         if( !empty($titre) && !empty($desc) && !empty($prixCov) &&
@@ -49,7 +49,8 @@
             header("Location: ../../index.php");
         }
         else{
-            echo "Ajout covoiturage invalide";
+            $err="Formulaire incomplet";
+            Header('Location:/ajoutAnnonce/erreur/'.$err);
         }
     }
     elseif($type=="Appartement"){
@@ -66,11 +67,12 @@
             $dateTemp=date_create($dateCess);
             $dateCess = date_format($dateTemp,'Y-m-d H:i:s');
             ajoutAppart($dateCess,$rueAppart,$nbPiece,$surface,$photo,$loyer,$numAppart,$villeAppart,$idA);
-            header("Location: ../../index.php");
+            header("Location: ../../index");
 
         }
         else{
-            echo "Ajout appartement invalide";
+            $err="Formulaire incomplet";
+            Header('Location:/ajoutAnnonce/erreur/'.$err);
         }
 
     }
@@ -87,14 +89,16 @@
             $photo="../../Medias/imageUpload/".$user['email']."/".$idA.".".$extensionTroc;
             $res = move_uploaded_file($_FILES['FileTroc']['tmp_name'],$photo);
             ajoutTroc($prixTroc,$numRecup,$photo,$rueRecup,$villeRecup,$idA);
-            header("Location: ../../index.php");
+            header("Location: ../../index");
         }
         else{
-            echo "Ajout troc invalide";
+            $err="Formulaire incomplet";
+            Header('Location:/ajoutAnnonce/erreur/'.$err);
         }
     }
     else{
-        echo "Choisis le type";
+        $err="Formulaire incomplet";
+        Header('Location:/ajoutAnnonce/erreur/'.$err);
     }
 
 ?>

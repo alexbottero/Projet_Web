@@ -30,7 +30,8 @@
             $resultats=rechercheCov($prixMax,$depart,$arrive,$dateCovoit);
         }
         else{
-            echo "manques info 2";
+            $err="Certains champs de recherche sont vides";
+            Header('Location:/erreur.php?messErreur='.$err);
         }
 
     }
@@ -39,7 +40,8 @@
             $resultats=rechercheApp($villeAppart,$pieceMin,$surface,$loyer);
         }
         else{
-            echo "manques info3";
+            $err="Certains champs de recherche sont vides";
+            Header('Location:/erreur.php?messErreur='.$err);
         }
 
     }
@@ -49,12 +51,14 @@
 
         }
         else{
-            echo "manques info";
+            $err="Certains champs de recherche sont vides";
+            Header('Location:/erreur.php?messErreur='.$err);
         }
 
     }
     else{
-        echo "erreur";
+        $err="Certains champs de recherche sont vides";
+        Header('Location:/erreur.php?messErreur='.$err);
     }
 
 ?>

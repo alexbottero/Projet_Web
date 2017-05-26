@@ -1,14 +1,4 @@
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projet Web</title>
-    <?php include ('Configs/Config_css.php'); ?>
-
-
-</head>
+<?php require("Vue_Entete.php"); ?>
 <body>
 <?php require("Vue_Menu.php"); ?>
 
@@ -30,7 +20,7 @@ foreach ($Apparts as $App){
             </div>";
     if($val){
         echo"<div class=\"card-action\">
-                <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$App['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
+                <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande/annonce/".$App['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
             </div>";}
 
     echo"</div>

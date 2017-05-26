@@ -1,22 +1,20 @@
-<!doctype html>
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projet Web</title>
-    <?php include ('Configs/Config_css.php'); ?>
-
-
-</head>
+<?php require("Vue_Entete.php"); ?>
 <body>
 <?php require("Vue_Menu.php"); ?>
+
     <?php
+    $compteur=1;
+    if(!empty($mesCovoits)){
+        echo"<h2> Mes annonces de covoiturage:</h2>";
+    }
+
     foreach ($mesCovoits as $covoit){
-        echo "<div class=\"col s12 m6 divAn\">
-          <div class=\"card  \">
+        if($compteur==1){
+            echo '<div class="row">';
+        }
+
+        echo "<div class=\"col s4 m4 \">
+          <div class=\"card  mesAnnonces\">
             <div class=\"card-content black-text\">
               <span class=\"card-title\">".$covoit['titreAnnonce']." le : ".$covoit['dateCovoiturage']."</span>
               <p>".$covoit['messageAnnonce']."</p>
@@ -26,16 +24,30 @@
             <p>Depart: Rue ".$covoit['rueDep']." ".$covoit['villeDep']." Arrivée: ".$covoit['villeArrive']."</p>
             </div>";
             echo"<div class=\"card-action\">
-                     <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$covoit['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
+                   <a class=\"waves-effect waves-light btn\"href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=3'>retirer annonce</a>
                 </div>";
         echo "</div>
                     </div>";
+         if( $compteur==3){
+            echo '</div>';
+            $compteur=0;
+        }
+        $compteur++;
+    }
+    if($compteur!=4){
+        echo '</div>';
     }
 
 
+
+    $compteur=1;
+    if(!empty($mesApparts)){     echo"<h2> Mes annonces d'appartement:</h2>";}
     foreach ($mesApparts as $App){
-        echo" <div class=\"col s6 m6 divAn\">
-          <div class=\"card\">
+        if($compteur==1){
+            echo '<div class="row">';
+        }
+        echo" <div class=\"col s4 m4 \">
+          <div class=\"card mesAnnonces\">
             <div class=\"card-image\">
               <img src=\"alexandrebottero.com/".$App['photoAppartement']."\"/>
               <span class=\"card-title\">".$App['titreAnnonce']." libre le ".$App['dateCessionAppartement']."</span>
@@ -49,20 +61,35 @@
             </div>";
 
             echo"<div class=\"card-action\">
-                <a class=\"waves-effect waves-light btn indigo darken-4\" href=''><i class=\"material-icons left\">input</i>Demander</a>
+               <a class=\"waves-effect waves-light btn\"href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$App['idAnnonce']."&value=3'>retirer annonce</a>
             </div>";
 
         echo"</div>
         </div>";
 
+        if( $compteur==3){
+            echo '</div>';
+            $compteur=0;
+        }
+        $compteur++;
+    }
+    if($compteur!=4){
+        echo '</div>';
     }
 
-    foreach ($mesTrocs as $Troc){
+    if(!empty($mesTrocs)){
+        echo"<h2> Mes annonces de troc:</h2>";
+    }
 
-        echo" <div class=\"col s6 m6 divAn\">
-          <div class=\"card\">
-            <div class=\"card-image\">
-              <img src=\"alexandrebottero.com/".$Troc['photoTroc']."\"/>
+    $compteur=1;
+    foreach ($mesTrocs as $Troc){
+        if($compteur==1){
+            echo '<div class="row">';
+        }
+        echo" <div class=\"col s4 m4\">
+          <div class=\"card mesAnnonces\">
+            <div class=\"card-image\" >
+              <img src=\"alexandrebottero.com/".$Troc['photoTroc']." \"height=\"250px\" />
               <span class=\"card-title\">".$Troc['titreAnnonce']."</span>
             </div>
             <div class=\"card-content\">
@@ -73,71 +100,138 @@
               <p>prix: ".$Troc['prixTroc'].".</p>
             </div>";
             echo"<div class=\"card-action\">
-            <a class=\"waves-effect waves-light btn indigo darken-4\" href='?idAnnonce=".$Troc['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
+           <a class=\"waves-effect waves-light btn\"href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$Troc['idAnnonce']."&value=3'>retirer annonce</a>
             </div>";
 
 
         echo " </div>
                 </div>";
+        if( $compteur==3){
+            echo '</div>';
+            $compteur=0;
+        }
+        $compteur++;
     }
+    if($compteur!=4){
+        echo '</div>';
+    }
+
+    if(!empty($demandesRecues)) {
+        echo "<h2> Mes demandes recues:</h2>";
+    }
+    $compteur=1;
     foreach ($demandesRecues as $demande){
-        echo "<div class=\"col s12 m6 divAn\">
-          <div class=\"card  \">
+        if($compteur==1){
+            echo '<div class="row">';
+        }
+        echo "<div class=\"col s4 m4 \">
+          <div class=\"card  mesAnnonces\">
             <div class=\"card-content black-text\">
               <span class=\"card-title\">".$demande['titreAnnonce']."</span>
               <p>".$demande['messageDemande']."</p>
             </div>
             <div class=\"card-content indigo darken-4 white-text\">
-            <p>Prix :".$demande['prixDemande']."</p>
+            <p>Statut: ".$demande['prixDemande']."</p>
             </div>";
             echo"<div class=\"card-action\">
-                     <a class=\"waves-effect waves-light btn indigo darken-4\" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idDemande=".$demande['idDemande']."&value=2'><i class=\"material-icons left\">input</i>Demander</a>
+                     <a class=\"btn-floating btn-large waves-effect waves-light darken-4\" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idDemande=".$demande['idDemande']."&value=2'><i class=\"material-icons\" >thumb_up</i></a>
+                     <a class=\"btn-floating btn-large waves-effect waves-light darken-4\"  href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idDemande=".$demande['idDemande']."&value=3'><i class=\"material-icons\">thumb_down</i></a>
                 </div>";
         echo "</div>
                     </div>";
+        if( $compteur==3){
+            echo '</div>';
+            $compteur=0;
+        }
+        $compteur++;
+
     }
+
+    if($compteur!=4){
+        echo '</div>';
+    }
+
+    if(!empty($demandesFaites)) {
+        echo "<h2> Mes demandes faites:</h2>";
+    }
+    $compteur=1;
     foreach ($demandesFaites as $demande){
-        echo "<div class=\"col s12 m6 divAn\">
-          <div class=\"card  \">
+        if($compteur==1){
+            echo '<div class="row">';
+        }
+        echo "<div class=\"col s4 m4 \">
+          <div class=\"card  mesAnnonces\">
             <div class=\"card-content black-text\">
               <span class=\"card-title\">".$demande['titreAnnonce']."</span>
               <p>".$demande['messageDemande']."</p>
             </div>
             <div class=\"card-content indigo darken-4 white-text\">
-            <p>Prix :".$demande['prixDemande']."</p>
+            <p>Statut: ".$demande['libelleStatutDemande']."</p>
             </div>";
             echo"<div class=\"card-action\">
-                     <a class=\"waves-effect waves-light btn indigo darken-4\" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idDemande=".$demande['idDemande']."&value=2'><i class=\"material-icons left\">input</i>Demander</a>
+                    <a class=\"waves-effect waves-light btn\"href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idDemande=".$demande['idDemande']."&value=3'>retirer annonce</a>
                 </div>";
         echo "</div>
                     </div>";
+        if( $compteur==3){
+            echo '</div>';
+            $compteur=0;
+        }
+        $compteur++;
+
     }
+
+    if($compteur!=4){
+        echo '</div>';
+    }
+
 
 
     if($user['statut']==2){
 
+        if(!empty($allCovs)){
+        echo"<h2> Annonces de covoiturage à valider:</h2>";}
+        $compteur=1;
         foreach ($allCovs as $covoit){
-            echo "<div class=\"col s12 m6 divAn\">
-          <div class=\"card  \">
+            if($compteur==1){
+                echo '<div class="row">';
+            }
+            echo "<div class=\"col s4 m4 \">
+          <div class=\"card  mesAnnonces\">
             <div class=\"card-content black-text\">
               <span class=\"card-title\">".$covoit['titreAnnonce']." le : ".$covoit['dateCovoiturage']."</span>
               <p>".$covoit['messageAnnonce']."</p>
-              <p>Prix:".$covoit['PrixTrajet']." nombre de place : ".$covoit['nbPlaceDispo']." bagage: ".$covoit['bagageCovoiturage']."</p>
+              <p>Prix: ".$covoit['PrixTrajet']." nombre de place: ".$covoit['nbPlaceDispo']." bagage: ".$covoit['bagageCovoiturage']."</p>
             </div>
             <div class=\"card-content indigo darken-4 white-text\">
             <p>Depart: Rue ".$covoit['rueDep']." ".$covoit['villeDep']." Arrivée: ".$covoit['villeArrive']."</p>
             </div>";
             echo"<div class=\"card-action\">
-                     <a class=\"waves-effect waves-light btn indigo darken-4\" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=2'><i class=\"material-icons left\">input</i>Demander</a>
+                       <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=2'><i class=\"material-icons\">thumb-up</i></a>
+                     <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$covoit['idAnnonce']."&value=3'><i class=\"material-icons\">thum-down</i></a>
                 </div>";
             echo "</div>
                     </div>";
+            if( $compteur==3){
+                echo '</div>';
+                $compteur=0;
+            }
+            $compteur++;
+
         }
 
-
+        if($compteur!=4){
+            echo '</div>';
+        }
+        if(!empty($allApps)){
+        echo"<h2> Annonces d'appartement à valider:</h2>";}
+        $compteur=1;
         foreach ($allApps as $App){
-            echo" <div class=\"col s6 m6 divAn\">
-          <div class=\"card\">
+            if($compteur==1){
+                echo '<div class="row">';
+            }
+            echo" <div class=\"col s4 m4 \">
+          <div class=\"card mesAnnonces\">
             <div class=\"card-image\">
               <img src=\"alexandrebottero.com/".$App['photoAppartement']."\"/>
               <span class=\"card-title\">".$App['titreAnnonce']." libre le ".$App['dateCessionAppartement']."</span>
@@ -151,20 +245,39 @@
             </div>";
 
             echo"<div class=\"card-action\">
-                <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$App['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
+                 <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$App['idAnnonce']."&value=2'><i class=\"material-icons\">thump-up</i></a>
+                     <a class=\"btn-floating btn-large  \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$App['idAnnonce']."&value=3'><i class=\"material-icons\">thump-down</i></a>
             </div>";
 
             echo"</div>
         </div>";
 
+            if( $compteur==3){
+                echo '</div>';
+                $compteur=0;
+            }
+            $compteur++;
+
         }
 
-        foreach ($allTrocs as $Troc){
+        if($compteur!=4){
+            echo '</div>';
+        }
 
-            echo" <div class=\"col s6 m6 divAn\">
-          <div class=\"card\">
+        if(!empty($allTrocs)){
+            echo"<h2> Annonces de troc à valider:</h2>";
+
+        }
+        $compteur=1;
+        foreach ($allTrocs as $Troc){
+            if($compteur==1){
+                echo '<div class="row">';
+            }
+
+            echo" <div class=\"col s4 m4 \">
+          <div class=\"card mesAnnonces\">
             <div class=\"card-image\">
-              <img src=\"alexandrebottero.com/".$Troc['photoTroc']."\"/>
+              <img src=\"alexandrebottero.com/".$Troc['photoTroc']."\"height=\"150px\"/>
               <span class=\"card-title\">".$Troc['titreAnnonce']."</span>
             </div>
             <div class=\"card-content\">
@@ -175,12 +288,23 @@
               <p>prix: ".$Troc['prixTroc'].".</p>
             </div>";
             echo"<div class=\"card-action\">
-            <a class=\"waves-effect waves-light btn indigo darken-4\" href='demande.php?idAnnonce=".$Troc['idAnnonce']."'><i class=\"material-icons left\">input</i>Demander</a>
+             <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$Troc['idAnnonce']."&value=2'><i class=\"material-icons\">thump-up</i></a>
+                     <a class=\"btn-floating btn-large waves-effect waves-light \" href='Controleurs/Controleurs_Pages/Controleur_GestionMonEspace.php?idAnnonce=".$Troc['idAnnonce']."&value=3'><i class=\"material-icons\">thump-down</i></a>
             </div>";
 
 
             echo " </div>
                 </div>";
+            if( $compteur==3){
+                echo '</div>';
+                $compteur=0;
+            }
+            $compteur++;
+
+        }
+
+        if($compteur!=4){
+            echo '</div>';
         }
 
     }

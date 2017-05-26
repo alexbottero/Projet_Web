@@ -33,4 +33,12 @@
         $req->bindParam(':statut',$statut);
         $req->execute();
     }
+
+    function supAnnonceInvalide(){
+        require_once("Modele_ConnexionBDD.php");
+        $connexion=connexionBD();
+        $req=$connexion->prepare('DELETE FROM Annonce WHERE idStatutAnnonce=3'
+        );
+        $req->execute();
+    }
 ?>

@@ -20,7 +20,7 @@ VALUES(:dateCess,:rue,:nbPiece,:surf,:photo,:loyer,:num,:ville,:idAnnonce)'
 function dernierAppart(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Appartement NATURAL JOIN Annonce WHERE idAppartement=(SELECT MAX(idAppartement) FROM Appartement)');
+    $req = $connexion->prepare('SELECT * FROM Appartement NATURAL JOIN Annonce WHERE idAppartement=(SELECT MAX(idAppartement) FROM Appartement NATURAL JOIN Annonce WHERE idStatutAnnonce=2)');
     $req->execute();
     $data=$req->fetch();
     return $data;
@@ -28,7 +28,7 @@ function dernierAppart(){
 function allAppart(){
     require_once("Modele_ConnexionBDD.php");
     $connexion = connexionBD();
-    $req = $connexion->prepare('SELECT * FROM Appartement NATURAL JOIN Annonce ORDER BY dateAjoutAnnonce DESC ');
+    $req = $connexion->prepare('SELECT * FROM Appartement NATURAL JOIN Annonce WHERE idStatutAnnonce=1 ORDER BY dateAjoutAnnonce DESC ');
     $req->execute();
     $data=$req->fetchAll();
     return $data;
